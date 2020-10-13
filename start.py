@@ -53,7 +53,10 @@ for filename in os.listdir(directory):
             x2 = x - 30
             roi_color = image[y2:y2 + h2, x2:x2 + w2]
             print('[INFO] Object found. Saving locally.')
-            cv2.imwrite(dir_path + '/output_memes/' + meme_id + '/' + str(w) + str(h) + '_meme.jpg', roi_color)
+            try:
+                cv2.imwrite(dir_path + '/output_memes/' + meme_id + '/' + str(w) + str(h) + '_meme.jpg', roi_color)
+            except Exception as e:
+                print("[ERROR] Something didnt work hmmm")
         continue
     else:
         continue
